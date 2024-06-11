@@ -1,0 +1,14 @@
+# General
+__pycache__/
+*.pyc
+.DS_Store
+.env
+env/
+venv/
+# Django
+db.sqlite3
+media/
+staticfiles/
+# Editor/IDE Specific
+.idea/
+.vscode/
