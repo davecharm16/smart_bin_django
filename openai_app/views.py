@@ -10,6 +10,7 @@ from openai import OpenAI
 @csrf_exempt
 @require_POST
 def analyze_data(request):
+    print(os.environ)
     client = OpenAI(
         api_key=os.environ.get("OPENAI_API_KEY"),
     )
