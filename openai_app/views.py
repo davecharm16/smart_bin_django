@@ -11,15 +11,17 @@ from openai import OpenAI
 @require_POST
 def analyze_data(request):
     print(os.environ)
-    client = OpenAI(
-        # api_key=os.environ.get("OPENAI_API_KEY"),
-        api_key="sk-proj-3AdBbvdovIDMF6hvRMOOT3BlbkFJll02lSJUyasohbw3qtki",
-    )
+   
     try:
         data = json.loads(request.body)
         input_waste_data = data.get('waste_data')
         input_fill_data = data.get('fill_level_data')
         api_secret = data.get('api_key')
+        open_ai_api_secret = data.get('open_ai_api_key')
+        client = OpenAI(
+            # api_key=os.environ.get("OPENAI_API_KEY"),
+            api_key=open_ai_api_secret,
+        )
         # if (api_secret == os.environ.get("API_SECRET")):
         if (api_secret != "SGHMYtIT2NFqKENBFQONGYRXsfl5BpOa"):
             return JsonResponse({'error': 'Wrong API KEY'}, status=400)
